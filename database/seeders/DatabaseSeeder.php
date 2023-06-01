@@ -14,9 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ScapeRoomSeeder::class,
-            DaySeeder::class,
-            TimeSlotSeeder::class
-
+            TimeSlotSeeder::class,
+            ScapeRoomTimeSlotSeeder::class
         ]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\ScapeRoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'v1/auth'
-], function ($router) {
+Route::group(['middleware' => 'api','prefix' => 'v1/auth'], function ($router) {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -30,11 +28,9 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);    
 });
 
-// Route::group([
-//     'prefix' => 'v1'
-// ], function ($router) {
-//     Route::get('/allProducts', [ProductController::class, 'allProducts']);
-//     Route::get('/popularProducts', [ProductController::class, 'popularProducts']);
-//     Route::get('/products/{id}', [ProductController::class, 'singleProduct']);
+Route::group(['prefix' => 'v1'], function ($router) {
+    Route::get('/escape-rooms', [ScapeRoomController::class, 'list']);
+    Route::get('/escape-rooms/{id}', [ScapeRoomController::class, 'findById']);
+    Route::get('/escape-rooms/{id}/time-slots', [ScapeRoomController::class, 'AvailableSpecificRoom']);
  
-// });
+});

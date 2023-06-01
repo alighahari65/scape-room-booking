@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('time_slot_id');
             $table->integer('scape_room_id');
+            $table->boolean('is_available')->default(1); // zero means is not available;
             $table->timestamps();
         });
     }

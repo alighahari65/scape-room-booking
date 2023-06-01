@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->integer('max_participants');
-            $table->boolean('is_available')->default(1); // zero means is not available;
             $table->integer('price');
             $table->timestamps();
         });

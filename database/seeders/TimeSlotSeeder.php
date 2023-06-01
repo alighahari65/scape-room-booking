@@ -14,10 +14,11 @@ class TimeSlotSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['time' => 'Morning'],
-            ['time' => 'Noon'],
-            ['time' => 'Night'],
-
+            ['time' => 'Satarday-Morning'],
+            ['time' => 'Monday-Noon'],
+            ['time' => 'Friday-Night'],
+            ['time' => 'Thusday-Night'],
+            ['time' => 'Sunday-Noon'],
         ];
 
         $times = [];

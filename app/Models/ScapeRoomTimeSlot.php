@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Day extends Model
+class ScapeRoomTimeSlot extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
+    protected $table= 'scape_room_time_slot';
 }

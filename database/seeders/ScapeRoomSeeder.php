@@ -14,10 +14,9 @@ class ScapeRoomSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['title' => 'scape-room-1', 'max_participants' => '5', 'price' => '350000', 'is_available' => 1],
-            ['title' => 'scape-room-2', 'max_participants' => '3', 'price' => '450000',  'is_available' => 0],
-            ['title' => 'scape-room-3', 'max_participants' => '9', 'price' => '380000', 'is_available' => 1],
-           
+            ['title' => 'scape-room-1', 'max_participants' => '5', 'price' => '350000'],
+            ['title' => 'scape-room-2', 'max_participants' => '3', 'price' => '450000'],
+            ['title' => 'scape-room-3', 'max_participants' => '9', 'price' => '380000'],
         ];
 
         $rooms = [];
@@ -27,7 +26,6 @@ class ScapeRoomSeeder extends Seeder
                 'title' => $item['title'],
                 'price' => $item['price'],
                 'max_participants' => $item['max_participants'],
-                'is_available' => $item['is_available'],
                 'created_at' => now(),
                 'updated_at' => now()
             ];
