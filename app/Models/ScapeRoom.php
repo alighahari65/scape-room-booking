@@ -16,4 +16,9 @@ class ScapeRoom extends Model
     {
         return $this->belongsToMany(TimeSlot::class)->withPivot('is_available');
     }
+
+    public function scapeRoomTimeSlot()
+    {
+        return $this->hasMany(ScapeRoomTimeSlot::class);
+    }
 }

@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scape_room_user', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->integer('scape_room_time_slot_id');
             $table->integer('user_id');
-            $table->integer('scape_room_id');
-            $table->integer('discount')->default(0);
             $table->integer('final_price');
             $table->timestamps();
         });
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scape_room_user');
+        Schema::dropIfExists('bookings');
     }
 };

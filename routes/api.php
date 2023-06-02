@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\BookingController;
 use App\Http\Controllers\ScapeRoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,12 @@ Route::group(['prefix' => 'v1'], function ($router) {
     Route::get('/escape-rooms', [ScapeRoomController::class, 'list']);
     Route::get('/escape-rooms/{id}', [ScapeRoomController::class, 'findById']);
     Route::get('/escape-rooms/{id}/time-slots', [ScapeRoomController::class, 'AvailableSpecificRoom']);
+    Route::group(['middleware' => 'auth:api'], function ($router) {
+        Route::post('/bookings', [BookingController::class, 'store']);
+        Route::delete('/bookings/{id}', [BookingController::class, 'destroy']);
+        Route::get('/bookings', [BookingController::class, 'list']);
+
+    
+    });
  
 });
