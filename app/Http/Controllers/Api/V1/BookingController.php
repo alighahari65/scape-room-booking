@@ -40,6 +40,7 @@ class BookingController extends Controller
                 $price = finalPrice($request->price, Booking::DISCOUNT);
             }
 
+            // Create New Booking
             $data = Booking::create([
                 'scape_room_time_slot_id' => $request->scapeRoomTimeSlotId,
                 'user_id' => $request->userId,
@@ -56,7 +57,6 @@ class BookingController extends Controller
     public function list(Request $request)
     {
         try {
-
             $data = Booking::where('user_id', auth()->id())->with(['scapeRoomTimeSlot', 'user'])->get();
             return $this->successResponse(BookingResource::collection($data));
         } catch (Exception $e) {

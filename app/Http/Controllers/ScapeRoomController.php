@@ -10,17 +10,15 @@ use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Exception;
-use Carbon\Carbon;
 
 class ScapeRoomController extends Controller
 {
     use ApiResponse;
 
-    // Return List Of Rooms;
+    // Return List Of ScapeRooms;
     public function list(Request $request)
     {
         try {
-            
             $data = ScapeRoom::with(['timeSlots'])->get();
             return $this->successResponse(ScapeRoomResourse::collection($data));
         } catch (Exception $e) {
@@ -28,7 +26,7 @@ class ScapeRoomController extends Controller
         }
     }
 
-    // Return Single Room;
+    // Return Single ScapeRoom;
     public function findById(Request $request, $id)
     {
         try {
